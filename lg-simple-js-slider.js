@@ -19,18 +19,18 @@
 
       return function (selector, config) {
         var
-          _mainElement = document.querySelector(selector), // основный элемент блока
-          _sliderWrapper = _mainElement.querySelector('.myslider__wrapper'), // обертка для .slider-item
-          _sliderItems = _mainElement.querySelectorAll('.myslider__item'), // элементы (.slider-item)
-          _sliderControls = document.querySelectorAll('.myslider__control'), // элементы управления
-          _sliderControlLeft = document.querySelector('.myslider__control_left'), // кнопка "LEFT"
-          _sliderControlRight = document.querySelector('.myslider__control_right'), // кнопка "RIGHT"
-          _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
-          _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента    
-          _positionLeftItem = 0, // позиция левого активного элемента
-          _transform = 0, // значение транфсофрмации .slider_wrapper
-          _step = _itemWidth / _wrapperWidth * 100, // величина шага (для трансформации)
-          _items = [], // массив элементов
+          _mainElement = document.querySelector(selector), 
+          _sliderWrapper = _mainElement.querySelector('.myslider__wrapper'), 
+          _sliderItems = _mainElement.querySelectorAll('.myslider__item'), 
+          _sliderControls = document.querySelectorAll('.myslider__control'), 
+          _sliderControlLeft = document.querySelector('.myslider__control_left'), 
+          _sliderControlRight = document.querySelector('.myslider__control_right'), 
+          _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), 
+          _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width),    
+          _positionLeftItem = 0,
+          _transform = 0, 
+          _step = _itemWidth / _wrapperWidth * 100, 
+          _items = [], 
           _interval = 0,
           _html = _mainElement.innerHTML,
           _states = [
@@ -38,10 +38,10 @@
             { active: false, minWidth: 980, count: 2 }
           ],
           _config = {
-            isCycling: false, // автоматическая смена слайдов
-            direction: 'right', // направление смены слайдов
-            interval: 2000, // интервал между автоматической сменой слайдов
-            pause: true // устанавливать ли паузу при поднесении курсора к слайдеру
+            isCycling: false, 
+            direction: 'right', 
+            interval: 2000, 
+            pause: true 
           };
 
         for (var key in config) {
@@ -140,7 +140,7 @@
           }, _config.interval);
         }
 
-        // обработчик события click для кнопок "назад" и "вперед"
+        
         var _controlClick = function (e) {
           if (this.classList.contains('myslider__control')) {
             e.preventDefault();
@@ -151,7 +151,7 @@
           }
         };
 
-        // обработка события изменения видимости страницы
+        
         var _handleVisibilityChange = function () {
           if (document.visibilityState === "hidden") {
             clearInterval(_interval);
@@ -226,17 +226,17 @@
         _setActive();
 
         return {
-          right: function () { // метод right
+          right: function () { 
             _transformItem('right');
           },
-          left: function () { // метод left
+          left: function () { 
             _transformItem('left');
           },
-          stop: function () { // метод stop
+          stop: function () { 
             _config.isCycling = false;
             clearInterval(_interval);
           },
-          cycle: function () { // метод cycle 
+          cycle: function () { 
             _config.isCycling = true;
             clearInterval(_interval);
             _cycle();
