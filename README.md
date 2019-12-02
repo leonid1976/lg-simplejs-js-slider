@@ -1,4 +1,4 @@
-<h2>A simple, responsive, slider</h2><br><br>
+<h2>A simple, responsive slider</h2><br><br>
 Simple slider that can be used for most projects. Using almost only CSS (transitions, transform and such) it's super easy to setup and very lightweight.<br><br>
 It's not depending on jQuery. Just vanilla javascript <br><br>
 Feel free to use it in your projects; do whatever you want.<br><br>
